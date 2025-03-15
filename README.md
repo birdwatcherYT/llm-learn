@@ -1,5 +1,8 @@
-# LangChainチートシート
+# LangChainコピペ用コード
 [Qiita](https://qiita.com/birdwatcher/items/b5cc66ce59095dee5625)で紹介したコードを基本に追加したり減らしたりしているサンプルコード。
+
+ネット上に落ちているコードやChatGPTが出力するコードが非推奨コードも多いので、ここにサンプルを置いておく。
+
 
 ## 環境構築
 ```sh
@@ -31,6 +34,8 @@ VerteAIのGeminiを使いたい場合は、`ChatGoogleGenerativeAI`を`ChatVerte
     - `uv run python src/autofix.py`
 - [より複雑な構造化出力](src/pydantic_out.py)
     - `uv run python src/pydantic_out.py`
+- [FewShotプロンプト](src/fewshot.py)
+    - `uv run python src/fewshot.py`
 - [直列に複数のLLMをつなぐ](src/chain.py)
     - `uv run python src/chain.py`
 - [並列に複数のLLMをつなぐ](src/chain_parallel.py)
