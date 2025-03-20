@@ -5,7 +5,8 @@
 
 2025年3月の最新langchain=0.3.20でWARNINGが出ないコードたち。
 
-## 環境構築
+## Python
+### 環境構築
 ```sh
 uv sync
 ```
@@ -22,8 +23,8 @@ LANGSMITH_PROJECT="llm-learn"
 ```
 VerteAIのGeminiを使いたい場合は、`ChatGoogleGenerativeAI`を`ChatVertexAI`に置き換える必要がある
 
-## プログラム
-### src
+### プログラム
+#### src
 - [基礎](src/basic.py)
     - `uv run python src/basic.py`
 - [ストリーム出力](src/stream.py) 
@@ -59,6 +60,30 @@ VerteAIのGeminiを使いたい場合は、`ChatGoogleGenerativeAI`を`ChatVerte
 - [RAG](src/rag.py)
     - `uv run python src/rag.py`
 
-### sample
+#### sample
 - [マルチ対話](sample/multichat.py)
     - `uv run python sample/multichat.py`
+
+## JavaScript
+langchain.jsも触ってみた
+
+### 環境構築
+```sh
+npm install
+```
+
+`.env`の作成
+```
+GOOGLE_API_KEY="Google AI Studioから取得したAPIキー"
+```
+### プログラム
+- [基礎](js/basic.js)
+    - `node js/basic.js`
+- [構造化出力](js/structured.js)
+    - `node js/structured.js`
+- [直列に複数のLLMをつなぐ](js/chain.js)
+    - `node js/chain.js`
+- [並列に複数のLLMをつなぐ](js/chain_parallel.js)
+    - `node js/chain_parallel.js`
+- [LangGraph](js/graph.js)
+    - `node js/graph.js`
