@@ -9,6 +9,7 @@ dependencies = [
     "langchain>=0.3.20",
     "langchain-community>=0.3.19",
     "langchain-google-genai>=2.1.0",
+    "langchain-openai>=0.3.11",
     "langgraph>=0.3.11",
     "python-dotenv>=1.0.1",
 ]

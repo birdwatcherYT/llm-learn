@@ -63,6 +63,9 @@ VerteAIのGeminiを使いたい場合は、`ChatGoogleGenerativeAI`を`ChatVerte
 #### sample
 - [マルチ対話](sample/multichat.py)
     - `uv run python sample/multichat.py`
+- [OpenRouterを使う](sample/openrouter.py)
+    - [OpenRouter](https://openrouter.ai/settings/keys)からAPIキーを取得し、`.env`に`OPENROUTER_API_KEY="APIキー"`を記載
+    - `uv run python sample/openrouter.py`
 
 ## JavaScript
 langchain.jsも触ってみた
