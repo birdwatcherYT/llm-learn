@@ -63,6 +63,8 @@ VerteAIのGeminiを使いたい場合は、`ChatGoogleGenerativeAI`を`ChatVerte
 #### sample
 - [マルチ対話](sample/multichat.py)
     - `uv run python sample/multichat.py`
+- [ChatPromptTemplateを使うとAIMessageが2連続の場合に空のレスポンスでエラーになる](sample/multichat_error.py)
+    - `uv run python sample/multichat_error.py`
 - [OpenRouterを使う](sample/openrouter.py)
     - [OpenRouter](https://openrouter.ai/settings/keys)からAPIキーを取得し、`.env`に`OPENROUTER_API_KEY="APIキー"`を記載
     - `uv run python sample/openrouter.py`
