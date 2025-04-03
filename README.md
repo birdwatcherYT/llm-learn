@@ -21,7 +21,8 @@ LANGSMITH_ENDPOINT="https://api.smith.langchain.com"
 LANGSMITH_API_KEY="LANGSMITHのAPIキー"
 LANGSMITH_PROJECT="llm-learn"
 ```
-VerteAIのGeminiを使いたい場合は、`ChatGoogleGenerativeAI`を`ChatVertexAI`に置き換える必要がある
+- VerteAIのGeminiを使いたい場合は、`ChatGoogleGenerativeAI`を`ChatVertexAI`に置き換える必要がある
+- LangSmithを使う場合に`input`(標準入力)を併用するとフリーズするようです
 
 ### プログラム
 #### src
