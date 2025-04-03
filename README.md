@@ -69,6 +69,8 @@ LANGSMITH_PROJECT="llm-learn"
 - [OpenRouterを使う](sample/openrouter.py)
     - [OpenRouter](https://openrouter.ai/settings/keys)からAPIキーを取得し、`.env`に`OPENROUTER_API_KEY="APIキー"`を記載
     - `uv run python sample/openrouter.py`
+- [プロンプト改善Human In the Loop](sample/prompt_improve.py)
+    - `uv run python sample/prompt_improve.py`
 
 ## JavaScript
 langchain.jsも触ってみた
