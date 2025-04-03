@@ -9,7 +9,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_community.chat_message_histories import ChatMessageHistory
 
-prompt = ChatPromptTemplate.from_messages(
+prompt = ChatPromptTemplate(
     [
         ("system", "あなたは優秀なアシスタントです。"),
         MessagesPlaceholder(variable_name="chat_history"), # ここにチャット履歴が入る
