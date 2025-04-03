@@ -29,27 +29,27 @@ VerteAIのGeminiを使いたい場合は、`ChatGoogleGenerativeAI`を`ChatVerte
     - `uv run python src/basic.py`
 - [ストリーム出力](src/stream.py) 
     - `uv run python src/stream.py`
-- [デバッグ用出力](src/debug.py)
+- [デバッグ用出力(ConsoleCallbackHandler)](src/debug.py)
     - `uv run python src/debug.py`
-- [構造化出力](src/structured.py)
+- [構造化出力(StructuredOutputParser)](src/structured.py) with ResponseSchema, PromptTemplate 
     - `uv run python src/structured.py`
-- [構造化出力失敗時の自動修正・リトライ](src/autofix.py) 
+- [構造化出力失敗時の自動修正・リトライ(OutputFixingParser)](src/autofix.py) 
     - `uv run python src/autofix.py`
-- [より複雑な構造化出力](src/pydantic_out.py)
+- [より複雑な構造化出力(PydanticOutputParser)](src/pydantic_out.py) with BaseModel, Field
     - `uv run python src/pydantic_out.py`
-- [FewShotプロンプト](src/fewshot.py)
+- [FewShotプロンプト(FewShotPromptTemplate)](src/fewshot.py)
     - `uv run python src/fewshot.py`
-- [直列に複数のLLMをつなぐ](src/chain.py)
+- [直列に複数のLLMをつなぐ](src/chain.py) with StrOutputParser
     - `uv run python src/chain.py`
-- [並列に複数のLLMをつなぐ](src/chain_parallel.py)
+- [並列に複数のLLMをつなぐ(RunnableParallel)](src/chain_parallel.py) with RunnableLambda
     - `uv run python src/chain_parallel.py`
-- [LangGraph](src/graph.py)
+- [LangGraph(StateGraph)](src/graph.py)
     - `uv run python src/graph.py`
-- [関数呼び出し](src/func_call.py)
+- [関数呼び出し(create_react_agent)](src/func_call.py)
     - `uv run python src/func_call.py`
-- [会話履歴の記憶(自前実装)](src/memory_custom.py)
+- [会話履歴の記憶(自前実装)](src/memory_custom.py) with AIMessage, HumanMessage, SystemMessage
     - `uv run python src/memory_custom.py`
-- [会話履歴の記憶(RunnableWithMessageHistory)](src/history.py)
+- [会話履歴の記憶(RunnableWithMessageHistory)](src/history.py) with ChatPromptTemplate
     - `uv run python src/history.py`
 - [会話履歴の記憶(MemorySaver)](src/saver.py)
     - `uv run python src/saver.py`
