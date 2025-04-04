@@ -69,6 +69,7 @@ prompt = """あなたはAIです。
 """
 
 history = []
+feedback_history = []
 while True:
     history_str = json.dumps(history, ensure_ascii=False, indent=1)
     answer = response_chain.invoke({"prompt": prompt, "chat_history": history_str})
@@ -77,26 +78,38 @@ while True:
     history.append({"ai": answer})
     history_str = json.dumps(history, ensure_ascii=False, indent=1)
     human_input = human_chain.invoke(history_str)
-    print("human:", human_input)
+    print("human(ai):", human_input)
     print("-" * 10)
-    history.append({"human": human_input})
-    feedback = input("feedback:")
-    # 入力がなければそのまま継続
+    history.append({"human(ai)": human_input})
+
+    feedback = input("feedback:").strip()
     if feedback == "skip" or feedback == "":
-        pass
+        # 入力がなければそのまま継続
+        continue
     elif feedback == "reset":
         history.clear()
-    elif feedback == "print":
-        print(">" * 40)
-        print(prompt)
-        print("<" * 40)
-    else:
-        history_str = json.dumps(history, ensure_ascii=False, indent=1)
-        prompt = improve_chain.invoke(
-            {"feedback": feedback, "prompt": prompt, "chat_history": history_str}
+        continue
+    print(">" * 40)
+    print(prompt)
+    print("<" * 40)
+    feedback_history.append(feedback)
+    print("feedback_history:", feedback_history)
+    history_str = json.dumps(history, ensure_ascii=False, indent=1)
+    while True:
+        new_prompt = improve_chain.invoke(
+            {
+                "feedback": feedback,
+                # "feedback": feedback_history,
+                "prompt": prompt,
+                "chat_history": history_str,
+            }
         )
         print(">" * 40)
-        print(prompt)
+        print(new_prompt)
         print("<" * 40)
-        # 対話履歴が残ってると過去の生成結果に影響を受けるのでリセットしておく
-        history.clear()
+        ok_ng = input("ok?ng?(ok以外はng扱い): ")
+        if ok_ng == "ok":
+            prompt = new_prompt
+            break
+    # 対話履歴が残ってると過去の生成結果に影響を受けるのでリセットしておく
+    history.clear()
