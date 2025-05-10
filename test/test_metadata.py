@@ -48,21 +48,12 @@ def test_create_extraction_chain_with_token_data(
     )
 
     # 1. FakeMessagesListChatModelのセットアップ
-    # このモデルは、モックのAIMessageを返します。
     fake_llm_instance = FakeMessagesListChatModel(responses=[mock_aim_message])
 
-    # 2. target_for_test.token.get_llmのパッチ適用
-    # token.pyのcreate_extraction_chainが呼び出された際に、get_llmがここで検索されます。
+    # 2. target_for_test.token.get_llmのモック化
     monkeypatch.setattr("target_for_test.token.get_llm", lambda: fake_llm_instance)
 
-    # target_for_test.structuredの実際のget_prompt_and_parserを使用して、
-
-    # 3. token.pyから抽出チェーンを作成します。
     extraction_chain = create_extraction_chain()
-
-    # 4. チェーンを実行します。
-    # structured.pyのget_prompt_templateからのプロンプトは "input_text" を使用します。
     actual_result = extraction_chain.invoke(input_text)
-    # 5. アサーション
     assert actual_result["content"] == expected_content
     assert actual_result["token"] == expected_token_usage
