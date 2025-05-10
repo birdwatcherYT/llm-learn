@@ -72,6 +72,14 @@ LANGSMITH_PROJECT="llm-learn"
 - [プロンプト改善Human In the Loop](sample/prompt_improve.py)
     - `uv run python sample/prompt_improve.py`
 
+#### test
+- [FakeListLLMを使ってLLMをモックする](test/test_structure.py)
+    - [構造化出力](target_for_test/structured.py)のテスト
+    - `uv run pytest test/test_structure.py`
+- [FakeMessagesListChatModelを使ってLLMをモックする](test/test_metadata.py)
+    - [トークン情報の取り出し](target_for_test/token.py)のテスト
+    - `uv run pytest test/test_metadata.py`
+
 ## JavaScript
 langchain.jsも触ってみた
 

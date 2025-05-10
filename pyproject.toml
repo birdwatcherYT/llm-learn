@@ -13,3 +13,13 @@ dependencies = [
     "langgraph>=0.3.11",
     "python-dotenv>=1.0.1",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "."
+]
