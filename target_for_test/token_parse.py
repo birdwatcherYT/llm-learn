@@ -1,4 +1,4 @@
-# uv run python -m target_for_test.token
+# uv run python -m target_for_test.token_parse
 from typing import Any
 
 from langchain_core.messages import BaseMessage

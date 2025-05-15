@@ -6,7 +6,7 @@ from typing import Any
 from langchain_core.messages import AIMessage
 from langchain_core.language_models.fake_chat_models import FakeMessagesListChatModel
 
-from target_for_test.token import create_extraction_chain
+from target_for_test.token_parse import create_extraction_chain
 
 
 @pytest.mark.parametrize(
@@ -50,8 +50,8 @@ def test_create_extraction_chain_with_token_data(
     # 1. FakeMessagesListChatModelのセットアップ
     fake_llm_instance = FakeMessagesListChatModel(responses=[mock_aim_message])
 
-    # 2. target_for_test.token.get_llmのモック化
-    monkeypatch.setattr("target_for_test.token.get_llm", lambda: fake_llm_instance)
+    # 2. target_for_test.token_parse.get_llmのモック化
+    monkeypatch.setattr("target_for_test.token_parse.get_llm", lambda: fake_llm_instance)
 
     extraction_chain = create_extraction_chain()
     actual_result = extraction_chain.invoke(input_text)
