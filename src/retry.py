@@ -40,6 +40,7 @@ chain = prompt_template | llm | output_fixing_parser
 chain_with_retry = chain.with_retry(
     stop_after_attempt=3,
     # wait_exponential_jitter=False # exponential backoffをやめる場合
+    # retry_if_exception_type=(ValueError, ) # 特定のエラー時のみ
 )
 result = chain_with_retry.invoke("普段はAIエンジニアをしていますが、休日には外に出て鳥を観察しに行き、撮影をします")
 print(result) # -> {'趣味': '鳥の観察、撮影', '職業': 'AIエンジニア', '年齢': None}

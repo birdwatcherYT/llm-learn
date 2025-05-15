@@ -5,7 +5,7 @@ from langchain.output_parsers import ResponseSchema, StructuredOutputParser
 from langchain.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-lite")
 
 PROMPT = """
 「入力文」から「趣味」「職業」「年齢」を抽出してください。
@@ -25,9 +25,8 @@ response_schemas = [
 ]
 output_parser = StructuredOutputParser.from_response_schemas(response_schemas)
 
-prompt_template = PromptTemplate(
+prompt_template = PromptTemplate.from_template(
     template=PROMPT,
-    input_variables=["input_str"],
     partial_variables={"format_instructions": output_parser.get_format_instructions()},
 )
 

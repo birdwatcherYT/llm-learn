@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from langchain_google_genai import ChatGoogleGenerativeAI
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-lite")
 
 from langchain_core.output_parsers import StrOutputParser
 from langchain.prompts import PromptTemplate
@@ -77,9 +77,8 @@ prompt = """
 ```
 """
 
-prompt_template = PromptTemplate(
+prompt_template = PromptTemplate.from_template(
     template=prompt,
-    input_variables=["input_str"],
     partial_variables={"few_shot_examples": fewshot_prompt.format()},
 )
 

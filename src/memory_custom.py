@@ -4,7 +4,7 @@ load_dotenv()
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.output_parsers import StrOutputParser
 
-chain = ChatGoogleGenerativeAI(model="gemini-1.5-flash") | StrOutputParser()
+chain = ChatGoogleGenerativeAI(model="gemini-2.0-flash-lite") | StrOutputParser()
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 

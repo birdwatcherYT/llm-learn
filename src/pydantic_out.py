@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from langchain_google_genai import ChatGoogleGenerativeAI
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-lite")
 
 from langchain.output_parsers import PydanticOutputParser
 from pydantic import BaseModel, Field
@@ -24,7 +24,7 @@ class BirdList(BaseModel):
 
 # PydanticOutputParserで行う場合
 output_parser = PydanticOutputParser(pydantic_object=BirdList)
-prompt_template = PromptTemplate(
+prompt_template = PromptTemplate.from_template(
     template=PROMPT,
     partial_variables={"format_instructions": output_parser.get_format_instructions()},
 )

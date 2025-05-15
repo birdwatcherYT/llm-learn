@@ -22,7 +22,7 @@ vectorstore = Chroma.from_documents(
     docs, GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
 )
 
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-lite")
 prompt = hub.pull("langchain-ai/retrieval-qa-chat") # 中身はこちら https://smith.langchain.com/hub/langchain-ai/retrieval-qa-chat
 
 combine_docs_chain = create_stuff_documents_chain(llm, prompt)

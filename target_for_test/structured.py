@@ -10,7 +10,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 
 def get_llm() -> BaseLanguageModel:
-    return ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+    return ChatGoogleGenerativeAI(model="gemini-2.0-flash-lite")
 
 def get_prompt_and_parser() -> tuple[PromptTemplate, StructuredOutputParser]:
     response_schemas = [
@@ -27,7 +27,7 @@ def get_prompt_and_parser() -> tuple[PromptTemplate, StructuredOutputParser]:
         ),
     ]
     output_parser = StructuredOutputParser.from_response_schemas(response_schemas)
-    prompt = PromptTemplate(
+    prompt = PromptTemplate.from_template(
         template="""
 「入力文」から「趣味」「職業」「年齢」を抽出してください。
 該当する項目がなければnullで埋めてください。
@@ -38,7 +38,6 @@ def get_prompt_and_parser() -> tuple[PromptTemplate, StructuredOutputParser]:
 # Format instructions
 {format_instructions}
 """,
-        input_variables=["input_str"],
         partial_variables={
             "format_instructions": output_parser.get_format_instructions()
         },
