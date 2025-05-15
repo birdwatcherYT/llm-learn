@@ -34,8 +34,10 @@ LANGSMITH_PROJECT="llm-learn"
     - `uv run python src/debug.py`
 - [構造化出力(StructuredOutputParser)](src/structured.py) with ResponseSchema, PromptTemplate 
     - `uv run python src/structured.py`
-- [構造化出力失敗時の自動修正・リトライ(OutputFixingParser)](src/autofix.py) 
+- [構造化出力失敗時の自動修正(OutputFixingParser)](src/autofix.py) 
     - `uv run python src/autofix.py`
+- [リトライ(with_retry)](src/retry.py) 
+    - `uv run python src/retry.py`
 - [より複雑な構造化出力(PydanticOutputParser)](src/pydantic_out.py) with BaseModel, Field
     - `uv run python src/pydantic_out.py`
 - [FewShotプロンプト(FewShotPromptTemplate)](src/fewshot.py)
