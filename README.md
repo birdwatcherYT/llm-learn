@@ -38,7 +38,7 @@ LANGSMITH_PROJECT="llm-learn"
     - `uv run python src/autofix.py`
 - [リトライ(with_retry)](src/retry.py) 
     - `uv run python src/retry.py`
-- [より複雑な構造化出力(PydanticOutputParser)](src/pydantic_out.py) with BaseModel, Field
+- [より複雑な構造化出力(PydanticOutputParser, with_structured_output)](src/pydantic_out.py) with BaseModel, Field
     - `uv run python src/pydantic_out.py`
 - [FewShotプロンプト(FewShotPromptTemplate)](src/fewshot.py)
     - `uv run python src/fewshot.py`
@@ -64,6 +64,8 @@ LANGSMITH_PROJECT="llm-learn"
     - `uv run python src/rag.py`
 - [MCP](src/mcp_playwright.py)
     - `uv run python src/mcp_playwright.py`
+- [thinkingモデルの思考を止める](src/nothinking.py)
+    - `uv run python src/nothinking.py`
 
 #### sample
 - [マルチAI対話](sample/multichat.py)
