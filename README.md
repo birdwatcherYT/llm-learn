@@ -62,6 +62,8 @@ LANGSMITH_PROJECT="llm-learn"
     - `uv run python src/ann.py`
 - [RAG](src/rag.py)
     - `uv run python src/rag.py`
+- [MCP](src/mcp_playwright.py)
+    - `uv run python src/mcp_playwright.py`
 
 #### sample
 - [マルチAI対話](sample/multichat.py)
